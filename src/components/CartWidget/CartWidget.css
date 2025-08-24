@@ -1,0 +1,4 @@
+.cartContainer {
+    flex-grow: 1;
+    text-align: end;
+}

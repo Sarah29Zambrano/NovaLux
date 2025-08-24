@@ -1,0 +1,13 @@
+.navBar {
+  background-color: rgb(139, 226, 139) !important;
+}
+
+.logoNovaLux {
+  width: 162px;
+  height: 80px;
+}
+
+.logoContainer {
+  margin-right: 8px;
+  flex-grow: 1;
+}
