@@ -1,0 +1,7 @@
+.itemCardMedia.MuiCardMedia-root {
+  object-fit: contain;
+}
+
+.cardActions.MuiCardActions-root {
+  justify-content: center;
+}

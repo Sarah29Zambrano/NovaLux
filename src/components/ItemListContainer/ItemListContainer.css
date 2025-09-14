@@ -1,5 +1,9 @@
-.mensajeContainer {
-    padding: 2rem;
-    color: grey;
+.itemListContainer {
+    margin: 16px auto;
+    padding: 0 4em;
     text-align: center;
+}
+
+.mensaje.MuiTypography-root {
+    margin-bottom: 16px;
 }

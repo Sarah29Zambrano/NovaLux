@@ -1,5 +1,11 @@
-.navBar {
+.navBar.MuiAppBar-root {
   background-color: rgb(139, 226, 139) !important;
+}
+
+.buttonPage.MuiButton-root {
+  display: block;
+  margin: 16px 0;
+  color: white;
 }
 
 .logoNovaLux {

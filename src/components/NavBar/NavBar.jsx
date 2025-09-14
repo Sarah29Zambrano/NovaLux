@@ -12,8 +12,25 @@ import MenuItem from '@mui/material/MenuItem';
 import "./NavBar.css"
 import logoNovaLux from "../../assets/NovaLuxLogo.png";
 import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
-const pages = ['Pequeños Electrodomésticos', 'Refrigeración', 'Lavado'];
+const pages = [
+  {
+    id: 1,
+    nombreParaMostrar: "Pequeños Electrodomésticos",
+    nombreLogico: "pequenosElectrodomesticos"
+  },
+  {
+    id: 2,
+    nombreParaMostrar: "Refrigeración",
+    nombreLogico: "refrigeracion"
+  },
+  {
+    id: 3,
+    nombreParaMostrar: "Lavado",
+    nombreLogico: "lavado"
+  }
+]
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -30,9 +47,11 @@ const NavBar = () => {
     <AppBar position="static" className="navBar">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box className="logoContainer" sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
-            <img src={logoNovaLux} className="logoNovaLux" />
-          </Box>
+          <Link to="/">
+            <Box className="logoContainer" sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
+              <img src={logoNovaLux} className="logoNovaLux" />
+            </Box>
+          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -57,25 +76,30 @@ const NavBar = () => {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                </MenuItem>
+              {pages.map(({ id, nombreLogico, nombreParaMostrar }) => (
+                <Link key={id} to={"/seccion/" + nombreLogico}>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography sx={{ textAlign: 'center' }}>{nombreParaMostrar}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
-          <Box className="logoContainer" sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: "center" }}>
-            <img src={logoNovaLux} className="logoNovaLux" />
-          </Box>
+          <Link className="logoContainer" to="/">
+            <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: "center" }}>
+              <img src={logoNovaLux} className="logoNovaLux" />
+            </Box>
+          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: "space-between" }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
+            {pages.map(({ id, nombreLogico, nombreParaMostrar }) => (
+              <Link key={id} to={"/seccion/" + nombreLogico}>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  className="buttonPage"
+                >
+                  {nombreParaMostrar}
+                </Button>
+              </Link>
             ))}
           </Box>
           <CartWidget />

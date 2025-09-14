@@ -1,3 +1,24 @@
+:root {
+  font-family: 'Instagram Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgb(255 255 255 / 87%);
+  text-rendering: optimizelegibility;
+
+  color-scheme: light dark;
+  background-color: #242424;
+
+  font-synthesis: none;
+}
+
+:root.MuiTypography-root {
+  font-family: 'Instagram Sans', sans-serif;
+}
+
 body {
   margin: 0;
+}
+
+a {
+  text-decoration: none;
 }
