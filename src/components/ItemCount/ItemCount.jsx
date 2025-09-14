@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import "./ItemCount.css";
 
 const ItemCount = ({ stock, initial = 1, alAgregar }) => {
   const [count, setCount] = React.useState(initial);
@@ -19,22 +20,8 @@ const ItemCount = ({ stock, initial = 1, alAgregar }) => {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: 2,
-        mt: 2,
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: 2,
-        }}
-      >
+    <Box className="container">
+      <Box className="wrapper">
         <IconButton
           color="primary"
           onClick={decrementar}

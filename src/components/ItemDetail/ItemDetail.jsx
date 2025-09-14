@@ -5,6 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ItemCount from "../ItemCount/ItemCount";
+import "./ItemDetail.css";
 
 const ItemDetail = ({ nombre, precio, stock, descripcion, imagen }) => {
   const agregarCantidadACarrito = (cantidad) => {
@@ -12,46 +13,32 @@ const ItemDetail = ({ nombre, precio, stock, descripcion, imagen }) => {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        mt: 4,
-      }}
-    >
-      <Card
-        sx={{
-          maxWidth: 600,
-          width: "100%",
-          borderRadius: 3,
-          boxShadow: 4,
-          overflow: "hidden",
-        }}
-      >
+    <Box className="detailContainer">
+      <Card className="card">
         {imagen && (
           <CardMedia
             component="img"
             height="300"
             image={imagen.url}
             alt={imagen.alt}
-            sx={{ objectFit: "contain" }}
+            className="cardMedia"
           />
         )}
         <CardContent>
           <Typography
             variant="h5"
             component="div"
-            sx={{ fontWeight: "bold", mb: 1 }}
+            className="nombreProducto"
           >
             {nombre}
           </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+          <Typography variant="body2" color="text.secondary" className="descripcionProducto">
             {descripcion}
           </Typography>
           <Typography
             variant="h6"
             color="primary"
-            sx={{ fontWeight: "medium" }}
+            className="precioProducto"
           >
             {precio}
           </Typography>
