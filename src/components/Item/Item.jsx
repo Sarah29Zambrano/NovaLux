@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import InfoIcon from '@mui/icons-material/InfoOutline';
 import './Item.css';
 import { Link } from 'react-router-dom';
+import { formatearMoneda } from '../../Asyncmocks';
 
 const Item = ({ id, nombre, descripcion, precio, imagen }) => {
   return (
@@ -26,7 +27,7 @@ const Item = ({ id, nombre, descripcion, precio, imagen }) => {
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           {descripcion}
         </Typography>
-        <Typography variant='h4'>{precio}</Typography>
+        <Typography variant='h4'>{formatearMoneda(precio)}</Typography>
       </CardContent>
       <CardActions className='cardActions'>
         <Link to={"/producto/" + id}>

@@ -11,11 +11,11 @@ const ItemDetailContainer = () => {
     if (id) {
       obtenerProductoPorId(id)
         .then((item) => {
-          setProducto(item);
+          setProducto({...item, id });
         });
     }
   }, [id]);
-  return <ItemDetail {...producto} />;
+  return <ItemDetail {...producto}/>;
 }
 
 export default ItemDetailContainer

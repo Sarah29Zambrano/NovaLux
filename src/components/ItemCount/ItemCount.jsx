@@ -7,8 +7,11 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./ItemCount.css";
+import NoStock from "../NoStock/NoStock";
+import { useNavigate } from "react-router-dom";
 
 const ItemCount = ({ stock, initial = 1, alAgregar }) => {
+  const navigate = useNavigate();
   const [count, setCount] = React.useState(initial);
 
   const incrementar = () => {
@@ -21,7 +24,7 @@ const ItemCount = ({ stock, initial = 1, alAgregar }) => {
 
   return (
     <Box className="container">
-      <Box className="wrapper">
+      {stock > 0 && <Box className="wrapper">
         <IconButton
           color="primary"
           onClick={decrementar}
@@ -37,16 +40,16 @@ const ItemCount = ({ stock, initial = 1, alAgregar }) => {
         >
           <AddIcon />
         </IconButton>
-      </Box>
-      <Button
+      </Box>}
+      {stock > 0 && <Button
         variant="contained"
         color="primary"
         startIcon={<ShoppingCartIcon />}
         onClick={() => alAgregar(count)}
-        disabled={stock === 0}
       >
         Agregar al carrito
-      </Button>
+      </Button>}
+      {stock === 0 && <NoStock onBack={() => navigate("/")} />}
     </Box>
   );
 };

@@ -2,6 +2,8 @@ import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+import { CartProvider } from './CartProvider'
+import CheckoutFormContainer from './components/CheckoutFormContainer/CheckoutFormContainer'
 
 function App() {
 
@@ -22,13 +24,16 @@ function App() {
         />
       </header>
       <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path='*' element={<div>404 Not Found</div>} />
-          <Route path='/' element={<ItemListContainer mensaje={'¡Hola, Bienvenidos a la tienda NovaLux!'} />} />
-          <Route path='/seccion/:categoria' element={<ItemListContainer />} />
-          <Route path='/producto/:id' element={<ItemDetailContainer />} />
-        </Routes>
+        <CartProvider>
+          <NavBar />
+          <Routes>
+            <Route path='*' element={<div>404 Not Found</div>} />
+            <Route path='/' element={<ItemListContainer mensaje={'¡Hola, Bienvenidos a la tienda NovaLux!'} />} />
+            <Route path='/seccion/:categoria' element={<ItemListContainer />} />
+            <Route path='/producto/:id' element={<ItemDetailContainer />} />
+            <Route path='/checkout' element={<CheckoutFormContainer />} />
+          </Routes>
+        </CartProvider>
       </BrowserRouter>
     </>
   )
